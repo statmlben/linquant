@@ -22,8 +22,8 @@ cdef void run_daxpy(double a, double[::1] x, double[::1] y, int dim):
 @cython.nonecheck(False)
 cdef double[::1] run_vec_minus(double[::1] x, double[::1] y, int dim):
 	cdef int inc = 1
-	cdef double[::1] tmp = np.zeros(dim)
 	cdef double pos = 1
+	cdef double[::1] tmp = np.zeros(dim)
 	cdef double neg = -1
 	blas.daxpy(&dim, &pos, &x[0], &inc, &tmp[0], &inc)
 	blas.daxpy(&dim, &neg, &y[0], &inc, &tmp[0], &inc)
